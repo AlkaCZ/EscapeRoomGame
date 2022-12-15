@@ -34,7 +34,7 @@ public class HerniPlan {
         Prostor laborator = new Prostor("Laboratoř", "Laboratoř ve které se provádí pokusy a výzkum");
         Prostor ridiciMistnost = new Prostor("Řídící_místnost", "Hlavní místnost s velkým pracovním stolem");
         Prostor osobniPokoj = new Prostor("Osobní_pokoj", "každý musí někde odpočívat, možná tady výzkumníci něco zapoměli");
-        Prostor skrytaMistnost = new Prostor("Skrytá_místnost", "co se zde asi skrývá ?");
+        //Prostor skrytaMistnost = new Prostor("Skrytá_místnost", "co se zde asi skrývá ?");
 
         // přiřazují se průchody mezi prostory (sousedící prostory)
         predsin.setVychod(chodba);
@@ -44,9 +44,9 @@ public class HerniPlan {
         laborator.setVychod(chodba);
         ridiciMistnost.setVychod(chodba);
         ridiciMistnost.setVychod(osobniPokoj);
-        ridiciMistnost.setVychod(skrytaMistnost);
+        //ridiciMistnost.setVychod(skrytaMistnost);
         osobniPokoj.setVychod(ridiciMistnost);
-        skrytaMistnost.setVychod(ridiciMistnost); //Asi není ani potřeba
+        //skrytaMistnost.setVychod(ridiciMistnost); //Asi není ani potřeba
 
         //Vytvoření Předmětů
         //Předsíň
@@ -80,8 +80,8 @@ public class HerniPlan {
         osobniPokoj.vlozVec(postel);
         osobniPokoj.vlozVec(nocniStolek);
         //Skrytá místnost
-        Vec truhla = new Vec("Truhla", false, false, true, true);
-        skrytaMistnost.vlozVec(truhla);
+       // Vec truhla = new Vec("Truhla", false, false, true, true);
+        //skrytaMistnost.vlozVec(truhla);
 
 
 
@@ -91,7 +91,7 @@ public class HerniPlan {
         sousedniDomecek.vlozVec(new Vec("stul",false));
  */
         aktualniProstor = predsin;  // hra začíná v peředsíňi
-        vyherniProstor = skrytaMistnost;
+       // vyherniProstor = skrytaMistnost;
 
     }
     
@@ -114,9 +114,15 @@ public class HerniPlan {
        aktualniProstor = prostor;
     }
 
+    public void setVyherniProstor(Prostor vyherniProstor) {
+        this.vyherniProstor = vyherniProstor;
+    }
+
     public Prostor getVyherniProstor() {
         return vyherniProstor;
     }
 
     public Kosicek getKosicek(){return  kosicek;}
+
+
 }

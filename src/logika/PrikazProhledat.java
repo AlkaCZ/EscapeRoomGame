@@ -18,13 +18,52 @@ public class PrikazProhledat implements IPrikaz{
 
         if (aktualniMistnost.obsahujeVec(nazevVeci)) {
             Vec pozadovanaVec = aktualniMistnost.vyberVec(nazevVeci);
-            if (pozadovanaVec.jeProhledatelna()) {
-                return "prohledal jsi" + nazevVeci;
+            if (pozadovanaVec.jeProhledatelna() && !pozadovanaVec.jeZamcena()) {
+
+                switch (pozadovanaVec.getNazev()){
+                    case "Šatník":
+                        //otevření šatníku
+                        break;
+                    case "Stolek":
+                        //otevření stolku
+                        break;
+                    case "Kabát":
+                        //otevření šatníku
+                        break;
+                    case "Pracovní stůl":
+                        //otevření šatníku
+                        break;
+                    case "Stojan":
+                        //otevření šatníku
+                        break;
+                    case "Skříň":
+                        //otevření šatníku
+                        break;
+                    case "Řídící_deska":
+                        //otevření šatníku
+                        break;
+                    case "Zvláštní_dvířka":
+                        //otevření šatníku
+                        break;
+                    case "Postel":
+                        //otevření šatníku
+                        break;
+                    case "Noční_stolek":
+                        //otevření šatníku
+                        break;
+
+
+                }
+                return "prohledal jsi" + nazevVeci;// přesunout do CASU
+
+            }
+            if (pozadovanaVec.jeProhledatelna() && pozadovanaVec.jeZamcena()){
+                return nazevVeci + "nelze prohledat, protože je zamčený";
             }
 
             }
 
-        return null;
+        return nazevVeci + "nejde prohledat, nic tam není";
     }
 
     @Override

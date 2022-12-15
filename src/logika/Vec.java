@@ -53,5 +53,9 @@ public class Vec {
         return prohledatelna;
     }
 
+    public boolean jeZamcena() { return zamcena; }
 
+    public boolean Odemceni(){
+       return this.zamcena = false;
+    }
 }
