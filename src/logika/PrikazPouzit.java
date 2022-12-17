@@ -1,10 +1,13 @@
 package logika;
+
 // Příkaz pro použití vybrané věci z inventáře
 public class PrikazPouzit implements IPrikaz{
 
-    private static final String NAZEV = "pouzit";
+    private static final String NAZEV = "použít";
 
     private HerniPlan plan;
+    private IHra hra;
+
 
     public PrikazPouzit(HerniPlan plan){
         this.plan = plan;
@@ -22,16 +25,28 @@ public class PrikazPouzit implements IPrikaz{
             {
                 case "Baterka":
                     //Přidat kontrolu pokud už je rozsvíceno, možná prostě odebrat baterku
-                    System.out.printf("Rozsvítil jsi " + v.getNazev());
-                    if (plan.getAktualniProstor().getNazev() == "Osobní Pokoj"){
+                    System.out.printf("Rozsvítil jsi " + v.getNazev() + ".  ");
+                    if (plan.getAktualniProstor().obsahujeVec("Postel") && plan.getAktualniProstor().obsahujeVec("Noční stolek")){
+                        return null;
+                    }
+
+
+                   else if (plan.getAktualniProstor().getNazev() == "Osobní_pokoj"){
                         plan.getAktualniProstor().vlozVec(new Vec("Postel", false, false, true, false));
-                        plan.getAktualniProstor().vlozVec(new Vec("Noční stolek", false, false, true, false));
+                        plan.getAktualniProstor().vlozVec(new Vec("Noční_stolek", false, false, true, false));
                         System.out.printf("Rozsvítil jsi v celém pokoji a díky tomu ho konečně můžeš pořádně prohledat");
 
                     }
+                   break;
                 case "Zapalovač":
                     System.out.printf("Rozsvítil jsi " + v.getNazev());
                     //Nastavení konce hry pokud jsi v Tajné
+                    if (plan.getAktualniProstor().getNazev() == "Skrytá_místnost"){
+                        plan.setVyherniProstor(plan.getAktualniProstor());
+                        System.out.printf( " a zničil jsi nebezpečnou zkoumanou látku");
+                        System.out.printf( "  pro konec hry napiš  'Konec'");
+                    }
+                    break;
 
             }
 
@@ -43,11 +58,11 @@ public class PrikazPouzit implements IPrikaz{
        }
 
 
-        return null;
+        return "";
     }
 
     @Override
     public String getNazev() {
-        return null;
+        return NAZEV;
     }
 }

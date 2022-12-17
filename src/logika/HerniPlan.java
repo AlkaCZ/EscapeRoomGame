@@ -19,7 +19,7 @@ public class HerniPlan {
     
 
     public HerniPlan() {
-        kosicek = new Kosicek(5);
+        kosicek = new Kosicek(7);
         zalozProstoryHry();
 
     }
@@ -49,27 +49,32 @@ public class HerniPlan {
         //skrytaMistnost.setVychod(ridiciMistnost); //Asi není ani potřeba
 
         //Vytvoření Předmětů
+
         //Předsíň
         Vec baterka = new Vec("Baterka", true, true, false, false);
-        chodba.vlozVec(baterka);
+        predsin.vlozVec(baterka);
+        //TEST
+        Vec TEST = new Vec("Tajný_kód", true,false,false,false);
+        Vec Test2 = new Vec("Zapalovač",true, true, false, false);
+        predsin.vlozVec(TEST);
+        predsin.vlozVec(Test2);
+        //TEST
         //Chodba
-        Vec doutnikSzapalovacem = new Vec("doutník se zapalovačem", true, true, false, false, true);
         Vec stolek = new Vec("Stolek", false, false, true, false);
         Vec satnik = new Vec("Šatník", false, false, true, true);
-        chodba.vlozVec(doutnikSzapalovacem);
         chodba.vlozVec(stolek);
         chodba.vlozVec(satnik);
 
         //Laboratoř
-        Vec pracovniStul = new Vec("Pracovní stůl", false, false, true, false);
+        Vec pracovniStul = new Vec("Pracovní_stůl", false, false, true, false);
         Vec stojan = new Vec("Stojan", false, false, true, false);
         laborator.vlozVec(pracovniStul);
         laborator.vlozVec(stojan);
 
         //Řídící místnost
         Vec skrin = new Vec("Skříň", false, false, true, true);
-        Vec zvlastniDvirka = new Vec("Zvláštní dvířka", false, false, true, true);
-        Vec ridiciDeska = new Vec("Řídící deska", false, false, true, false);
+        Vec zvlastniDvirka = new Vec("Zvláštní_dvířka", false, false, true, true);
+        Vec ridiciDeska = new Vec("Řídící_deska", false, false, true, false);
         ridiciMistnost.vlozVec(skrin);
         ridiciMistnost.vlozVec(zvlastniDvirka);
         ridiciMistnost.vlozVec(ridiciDeska);
@@ -88,7 +93,7 @@ public class HerniPlan {
         sousedniDomecek.vlozVec(new Vec("stul",false));
  */
         aktualniProstor = predsin;  // hra začíná v peředsíňi
-       // vyherniProstor = skrytaMistnost;
+        vyherniProstor = null;
 
     }
     
@@ -115,11 +120,16 @@ public class HerniPlan {
         this.vyherniProstor = vyherniProstor;
     }
 
+
+
+
     public Prostor getVyherniProstor() {
         return vyherniProstor;
     }
 
     public Kosicek getKosicek(){return  kosicek;}
+
+
 
 
 }

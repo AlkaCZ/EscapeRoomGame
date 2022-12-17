@@ -174,6 +174,15 @@ public class Prostor {
     public void vlozVec(Vec neco) {
         seznamVeci.add(neco);
     }
+    public Vec vratVec(String nazevVeci){
+        Vec vybranaVec = null;
+        for ( Vec neco : seznamVeci ) {
+            if (neco.getNazev().equals(nazevVeci)) {
+                vybranaVec=neco;
+            }
+        }
+        return vybranaVec;
+    }
     public boolean obsahujeVec(String nazevVeci) {
         for ( Vec neco : seznamVeci ) {
             if (neco.getNazev().equals(nazevVeci)) {
@@ -208,4 +217,6 @@ public class Prostor {
         }
         return seznam;
     }
+
+
 }

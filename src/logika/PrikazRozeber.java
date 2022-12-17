@@ -15,7 +15,6 @@ public class PrikazRozeber implements IPrikaz{
             return "Můžeš rozebrat jen jednu věc najednou!";
         }
         String nazevVeci = parametry[0];
-        Prostor aktualniMistnost = plan.getAktualniProstor();
 
 
         if (plan.getKosicek().obsahujeVec(nazevVeci)) {
@@ -23,15 +22,16 @@ public class PrikazRozeber implements IPrikaz{
             if (pozadovanaVec.jeRozebiratelna()){
                 switch (pozadovanaVec.getNazev()){
 
-                    case "doutník se zapalovačem":
-                        plan.getKosicek().vlozDoKosicku(new Vec("doutník",true, false, false, false));
-                        plan.getKosicek().vlozDoKosicku(new Vec("zapalovač",true, true, false, false));
+                    case "Doutník_se_zapalovačem":
+                        plan.getKosicek().vlozDoKosicku(new Vec("Doutník",true, false, false, false));
+                        plan.getKosicek().vlozDoKosicku(new Vec("Zapalovač",true, true, false, false));
+                        System.out.printf(pozadovanaVec.getNazev() + "Jsi rozebral na samotný doutník a zapalovač a vložil jsi si je do batohu");
                   break;
                 }
             }
             else {
                 plan.getKosicek().vlozDoKosicku(pozadovanaVec);
-                return pozadovanaVec.getNazev() + "nejde rozebrat";
+                return pozadovanaVec.getNazev() + " nejde rozebrat";
             }
         }
         return "Abys mohl něco rozebrat tak si věc musíš nejdříve vložit do inventáře";
@@ -39,6 +39,7 @@ public class PrikazRozeber implements IPrikaz{
 
     @Override
     public String getNazev() {
-        return null;
+        return NAZEV;
+
     }
 }

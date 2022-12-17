@@ -65,9 +65,18 @@ public class Vec {
 
     public boolean jeZamcena() { return zamcena; }
 
-    public boolean Odemceni(){
-       return this.zamcena = false;
-    }
+
 
     public boolean jeRozebiratelna(){return rozebiratelna;}
+
+    public boolean Odemceni(boolean nepravda){
+       return this.zamcena = nepravda;
+    }
+
+    public boolean setProhledatelna(boolean pravda){
+       return this.prohledatelna = pravda;
+    }
+
+
+
 }

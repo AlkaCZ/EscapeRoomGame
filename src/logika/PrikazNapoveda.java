@@ -10,7 +10,7 @@ package logika;
  */
 public class PrikazNapoveda implements IPrikaz {
     
-    private static final String NAZEV = "pomoc";
+    private static final String NAZEV = "nápověda";
     private SeznamPrikazu platnePrikazy;
     
     
@@ -33,8 +33,9 @@ public class PrikazNapoveda implements IPrikaz {
      */
     @Override
     public String provedPrikaz(String... parametry) {
-        return "Tvým úkolem je dovést Červenou Karkulku z domečku\n"
-        + "až k babičce, která bydlí v chaloupce za lesem.\n"
+        return "Tvým úkolem je ukrást tajné dokumenty\n"
+        + "a zničit látku kterou v laboratoři vytvářejí.\n"
+        + "POZOR - všechny mezery se zadávají jako podtržítko ->_<-\n"
         + "\n"
         + "Můžeš zadat tyto příkazy:\n"
         + platnePrikazy.vratNazvyPrikazu();
