@@ -40,7 +40,7 @@ public class PrikazOdemkni implements IPrikaz{
                             plan.getAktualniProstor().vyberVec(nazevVeci).Odemceni();
                             plan.setVyherniProstor(new Prostor("Skrytá_místnost", "co se zde asi skrývá ?"));
                             plan.getVyherniProstor().vlozVec(new Vec("Truhla",false,false,true,false));
-                            aktualniMistnost.setVychod(plan.getVyherniProstor());
+                            aktualniMistnost.setVychod(plan.getVyherniProstor());// Až po použití doutníku
                             System.out.printf("Odemkl jsi" + nazevVeci + " a našel jsi novou místnost");
                         }
                         break;

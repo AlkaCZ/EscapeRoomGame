@@ -10,6 +10,8 @@ public class Vec {
 
     private boolean zamcena;
 
+    private boolean rozebiratelna;
+
 
 
 
@@ -27,6 +29,14 @@ public class Vec {
         this.specialniVlastnost = specialniVlastnost;
         this.prohledatelna = prohledatelna;
         this.zamcena = zamcena;
+    }
+    public Vec(String nazev, boolean prenositelna, boolean specialniVlastnost, boolean prohledatelna, boolean zamcena, boolean rozebiratelna) {
+        this.nazev = nazev;
+        this.prenositelna = prenositelna;
+        this.specialniVlastnost = specialniVlastnost;
+        this.prohledatelna = prohledatelna;
+        this.zamcena = zamcena;
+        this.rozebiratelna = rozebiratelna;
     }
 
     /**
@@ -58,4 +68,6 @@ public class Vec {
     public boolean Odemceni(){
        return this.zamcena = false;
     }
+
+    public boolean jeRozebiratelna(){return rozebiratelna;}
 }

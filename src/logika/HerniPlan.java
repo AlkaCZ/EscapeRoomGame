@@ -50,11 +50,11 @@ public class HerniPlan {
 
         //Vytvoření Předmětů
         //Předsíň
-        Vec baterka = new Vec("baterka", true, true, false, false);
+        Vec baterka = new Vec("Baterka", true, true, false, false);
         chodba.vlozVec(baterka);
         //Chodba
-        Vec doutnikSzapalovacem = new Vec("doutník se zapalovačem", true, true, false, false);
-        Vec stolek = new Vec("stolek", false, false, true, false);
+        Vec doutnikSzapalovacem = new Vec("doutník se zapalovačem", true, true, false, false, true);
+        Vec stolek = new Vec("Stolek", false, false, true, false);
         Vec satnik = new Vec("Šatník", false, false, true, true);
         chodba.vlozVec(doutnikSzapalovacem);
         chodba.vlozVec(stolek);
@@ -75,10 +75,7 @@ public class HerniPlan {
         ridiciMistnost.vlozVec(ridiciDeska);
 
         //Osobní pokoj
-        Vec postel = new Vec("Postel", false, false, true, false);
-        Vec nocniStolek = new Vec("Noční stolek", false, false, true, false);
-        osobniPokoj.vlozVec(postel);
-        osobniPokoj.vlozVec(nocniStolek);
+        // Vše se vloží až po rozsvícení baterky
         //Skrytá místnost
        // Vec truhla = new Vec("Truhla", false, false, true, true);
         //skrytaMistnost.vlozVec(truhla);
