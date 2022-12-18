@@ -1,0 +1,51 @@
+Příručka k příkazům
+
+batoh
+Příkaz slouží k zobrazení batohu, není potřeba zadat nic jiného.
+
+> batoh
+
+jdi,
+Příkaz který slouží k posunu hráče v hracím plánu z jedné místnosti do druhé. Je potřeba zadat požadovanou místnost kam se chcete přemístit.
+
+> jdi Chodba
+
+konec,
+Příkaz který kdekoli ukončí hru.
+
+>konec
+
+nápověda,
+Příkaz pro zobrazení nápovědy.
+
+>nápověda
+
+odemkni,
+Příkaz pro odemčení zamčeného předmětu. Po odemčení se dá předmět prohledat. Potřeba zadat předmět který chcecte odemknout.
+
+>odemkni Skříň
+
+polož,
+Vybere a položí předmět do místnosti ve které se hráč nachází.
+
+>polož Doutník
+
+použít,
+Použije speciální vlastnost danného předmětu, např. rozsvítí baterku.
+
+>použít Baterka
+
+prohledat,
+Příkaz pro prohledání zadaného předmětu. Po prohledání bude možné najít další na první pohled skryté předměty.
+
+>prohledat Stolek
+
+rozeber,
+Příkaz pro rozebrání vybraného předmětu. Pokud předmět lze rozebrat budou rozebrané části ihned vloženy do batohu.
+
+>rozeber set_doutniku_se_zapalovacem
+
+seber.
+Příkaz který vloží vybranou věc do batohu.
+
+>seber Klíč
