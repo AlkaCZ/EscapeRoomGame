@@ -8,9 +8,17 @@ package logika;
 
 
 public class PrikazProhledat implements IPrikaz{
+    /**
+     Nastavení toho jak se bude příkaz volat jako příkaz
+     */
     private static final String NAZEV = "prohledat";
+    /**
+     Vytvoření instance herního plánu, holder
+     */
     private HerniPlan plan;
-
+    /**
+     Předpis příkazu
+     */
     public PrikazProhledat(HerniPlan plan){
         this.plan = plan;
     }

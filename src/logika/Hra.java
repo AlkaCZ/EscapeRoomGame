@@ -11,9 +11,23 @@ package logika;
  */
 
 public class Hra implements IHra {
-    private SeznamPrikazu platnePrikazy;    // obsahuje seznam přípustných příkazů
+    /**
+     Obsahuje seznam přípustných příkazů
+     */
+    private SeznamPrikazu platnePrikazy;
+    /**
+     Herní plán
+     */
     private HerniPlan herniPlan;
+
+    /**
+     Nastavení konce HRY
+     */
     private boolean konecHry = false;
+
+    /**
+     Nastavení základního epilogu
+     */
 
     private String epilog = "Dík, že jste si zahráli.  Ahoj.";
 

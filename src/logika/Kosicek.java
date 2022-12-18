@@ -2,11 +2,19 @@ package logika;
 
 import java.util.HashSet;
 import java.util.Set;
-
+/**
+Třída pro definování vlastností košíčku
+ */
 public class Kosicek {
 
+    /**
+     Omezení velikosti košíčku/batohu
+     */
     private  int omezeniKosicku;
 
+    /**
+     Set který bude obsahovat vložené věci
+     */
     private  Set<Vec> obsahKosicku;
 
     /**

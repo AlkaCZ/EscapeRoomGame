@@ -7,11 +7,17 @@ package logika;
  */
 
 public class PrikazOdemkni implements IPrikaz{
-
+    /**
+     Nastavení toho jak se bude příkaz volat jako příkaz
+     */
     private static final String NAZEV = "odemkni";
-
+    /**
+     Vytvoření instance hry, holder
+     */
     private HerniPlan plan;
-
+    /**
+     Předpis příkazu
+     */
     public PrikazOdemkni(HerniPlan plan){
         this.plan = plan;
     }

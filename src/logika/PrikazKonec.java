@@ -7,9 +7,13 @@ package logika;
  */
 
 public class PrikazKonec implements IPrikaz {
-
+    /**
+     Nastavení toho jak se bude příkaz volat jako příkaz
+     */
     private static final String NAZEV = "konec";
-
+    /**
+     Vytvoření instance hry, holder
+     */
     private Hra hra;
 
     /**

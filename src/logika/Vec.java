@@ -1,14 +1,35 @@
 package logika;
+/**
+ * Třída Věc, která předepisuje jak bude vypadat
+ */
 
 public class Vec {
+    /**
+     * Vlastnost věci název
+     */
     private String nazev;
+    /**
+     * Vlastnost věci přenositelnost
+     */
     private boolean prenositelna;
+    /**
+     * Vlastnost věci, pokud má věc nějakou speciální vlastnost
+     */
 
     private boolean specialniVlastnost;
+    /**
+     * Vlastnost věci pokud je prohledatelná
+     */
 
     private boolean prohledatelna;
+    /**
+     * Vlastnost věci pokud je zamčená
+     */
 
     private boolean zamcena;
+    /**
+     * Vlastnost věci pokud lze rozebrat
+     */
 
     private boolean rozebiratelna;
 
@@ -23,6 +44,10 @@ public class Vec {
      * @param prenositelna Parametr určuje, zda je věc
      *                     přenositelná hráčem
      */
+
+    /**
+     * Předpis věci bez toho aby šla rozebrat
+     */
     public Vec(String nazev, boolean prenositelna, boolean specialniVlastnost, boolean prohledatelna, boolean zamcena) {
         this.nazev = nazev;
         this.prenositelna = prenositelna;
@@ -30,6 +55,9 @@ public class Vec {
         this.prohledatelna = prohledatelna;
         this.zamcena = zamcena;
     }
+    /**
+     * Předpis věci s tím že lze rozebrat
+     */
     public Vec(String nazev, boolean prenositelna, boolean specialniVlastnost, boolean prohledatelna, boolean zamcena, boolean rozebiratelna) {
         this.nazev = nazev;
         this.prenositelna = prenositelna;

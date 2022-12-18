@@ -6,8 +6,13 @@ package logika;
  *
  */
 public class PrikazNapoveda implements IPrikaz {
-    
+    /**
+     Nastavení toho jak se bude příkaz volat jako příkaz
+     */
     private static final String NAZEV = "nápověda";
+    /**
+     Vytvoření instance Seznamu příkazů, holder
+     */
     private SeznamPrikazu platnePrikazy;
     
     

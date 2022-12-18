@@ -1,9 +1,21 @@
 package logika;
+/**
+ *  Zde je struktura příkazu batoh
+ *
+ */
 
 public class PrikazBatoh implements IPrikaz{
+    /**
+     Nastavení toho jak se bude příkaz volat jako příkaz
+     */
     private static final String NAZEV = "batoh";
+    /**
+     Herní plán
+     */
     private HerniPlan plan;
-
+    /**
+     Předpis příkazu
+     */
     public PrikazBatoh(HerniPlan plan){
         this.plan = plan;
     }

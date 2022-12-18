@@ -1,11 +1,21 @@
 package logika;
+/**
+ *  Třída PrikazJdi implementuje pro hru příkaz polož.
+ *  Tato třída je součástí jednoduché textové hry.
+ */
 
 public class PrikazPoloz implements IPrikaz{
-
+    /**
+     Nastavení toho jak se bude příkaz volat jako příkaz
+     */
     private static final String NAZEV = "polož";
-
+    /**
+     Vytvoření instance hry, holder
+     */
     private HerniPlan plan;
-
+    /**
+     Předpis příkazu
+     */
     public PrikazPoloz(HerniPlan plan){
         this.plan = plan;
     }

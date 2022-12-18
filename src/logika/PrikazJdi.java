@@ -5,8 +5,17 @@ package logika;
  *  Tato třída je součástí jednoduché textové hry.
  */
 public class PrikazJdi implements IPrikaz {
+    /**
+     Nastavení toho jak se bude příkaz volat jako příkaz
+     */
     private static final String NAZEV = "jdi";
+    /**
+     Vytvoření instance hry, holder
+     */
     private Hra hra;
+    /**
+     Vytvoření instance herního plánu, holder
+     */
     private HerniPlan plan;
     
     /**

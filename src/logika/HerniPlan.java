@@ -11,14 +11,27 @@ package logika;
  *
  */
 public class HerniPlan {
-    
+
+    /**
+  Proměná aktuálního prostoru
+     */
     private Prostor aktualniProstor;
+    /**
+     Proměná výherního prostoru
+     */
     private Prostor vyherniProstor;
-
+    /**
+     Proměná skrytého prostoru, který ve hře není na první pohled vidět.
+     Zobrazí se až po dané události.
+     */
     private Prostor skrytyProstor;
-
+    /**
+     Proměná batohu/kosicku, do kterého se dávají vybrané předměty.
+     */
     private Kosicek kosicek;
-    
+    /**
+     Založení hry a košíčku/batohu
+     */
 
     public HerniPlan() {
         kosicek = new Kosicek(10);
@@ -121,6 +134,9 @@ public class HerniPlan {
     public void setVyherniProstor(Prostor vyherniProstor) {
         this.vyherniProstor = vyherniProstor;
     }
+    /**
+     Metoda pro nastavení vchodu do tajné místnosti
+     */
 
     public void setTajnyVchod(Prostor prostor){
         prostor.setVychod(skrytyProstor);

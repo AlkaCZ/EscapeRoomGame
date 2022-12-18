@@ -8,13 +8,23 @@ package logika;
 
 
 public class PrikazPouzit implements IPrikaz{
+    /**
+     Nastavení toho jak se bude příkaz volat jako příkaz
+     */
 
     private static final String NAZEV = "použít";
-
+    /**
+     Vytvoření instance hry, holder
+     */
     private Hra hra;
+    /**
+     Vytvoření instance herního plánu, holder
+     */
     private HerniPlan plan;
 
-
+    /**
+     Předpis příkazu
+     */
     public PrikazPouzit (Hra hra) {
         this.hra = hra;
         plan = hra.getHerniPlan();

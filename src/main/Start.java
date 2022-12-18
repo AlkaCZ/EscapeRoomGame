@@ -3,7 +3,9 @@ package main;
 import logika.*;
 import uiText.TextoveRozhrani;
 
-
+/**
+ * Třída pro spuštění aplikace
+ */
 public class Start
 {
     /***************************************************************************

@@ -7,11 +7,17 @@ package logika;
  */
 
 public class PrikazRozeber implements IPrikaz{
-
+    /**
+     Nastavení toho jak se bude příkaz volat jako příkaz
+     */
     private static final String NAZEV = "rozeber";
-
+    /**
+     Vytvoření instance herniho Planu, holder
+     */
     private HerniPlan plan;
-
+    /**
+     Předpis příkazu
+     */
     public PrikazRozeber(HerniPlan plan){
         this.plan = plan;
     }

@@ -1,12 +1,25 @@
 package logika;
+/**
+ *  Třída PrikazSeber implementuje pro hru příkaz seber.
+ *  Tato třída je součástí jednoduché textové hry.
+ *  Příkaz pro sebrání vybrané věci v prostoru/místnosti.
+ *
+ */
+
 
 public class PrikazSeber implements IPrikaz{
-
+    /**
+     Nastavení toho jak se bude příkaz volat jako příkaz
+     */
     private static final String NAZEV = "seber";
-
+    /**
+     Vytvoření instance herního plánu, holder
+     */
     private HerniPlan plan;
 
-
+    /**
+     Předpis příkazu
+     */
     public PrikazSeber(HerniPlan plan) {
         this.plan = plan;
     }

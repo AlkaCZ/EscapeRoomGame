@@ -16,11 +16,23 @@ import java.util.stream.Collectors;
  * @version pro školní rok 2016/2017
  */
 public class Prostor {
-
+    /**
+     * Název prostoru
+     */
     private String nazev;
-    private String popis;
-    private Set<Prostor> vychody;   // obsahuje sousední místnosti
+    /**
+     * Popis prostoru
+     */
 
+    private String popis;
+    /**
+     * Seznam východů z místnosti, obsahuje sousední místnosti
+     */
+    private Set<Prostor> vychody;
+
+    /**
+     * Seznam věcí v místnosti
+     */
     private List<Vec> seznamVeci;
 
     /**
@@ -175,14 +187,22 @@ public class Prostor {
         return Collections.unmodifiableCollection(vychody);
     }
 
-
+    /**
+     Metoda pro vložení věci do prostoru.
+     */
     public void vlozVec(Vec neco) {
         seznamVeci.add(neco);
     }
+    /**
+     Metoda pro odebrání věci z prostoru.
+     */
     public void odeberVec(String nazev) {
         seznamVeci.remove(vratVec(nazev));
     }
 
+    /**
+     Metoda pro vrácení věci podle názvu věci
+     */
     public Vec vratVec(String nazevVeci){
         Vec vybranaVec = null;
         for ( Vec neco : seznamVeci ) {
@@ -192,6 +212,9 @@ public class Prostor {
         }
         return vybranaVec;
     }
+    /**
+     Metoda pro rozhodnutí pokud je v prostoru/místnosti hledaná věc
+     */
     public boolean obsahujeVec(String nazevVeci) {
         for ( Vec neco : seznamVeci ) {
             if (neco.getNazev().equals(nazevVeci)) {
@@ -200,6 +223,9 @@ public class Prostor {
         }
         return false;
     }
+    /**
+     Metoda která vrací vybranou věc podle jména
+     */
     public Vec vyberVec(String nazevVeci) {
         Vec vybranaVec = null;
         for ( Vec neco : seznamVeci ) {
@@ -218,7 +244,9 @@ public class Prostor {
         return vybranaVec;
     }
 
-
+    /**
+     Metoda pro vnitřní využití seznamu věcí v místnosti
+     */
     private String seznamVeci() {
         String seznam = "";
         for ( Vec neco : seznamVeci ) {
