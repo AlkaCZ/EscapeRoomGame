@@ -1,4 +1,10 @@
 package logika;
+/**
+ *  Třída PrikazRozeber implementuje pro hru příkaz rozeber.
+ *  Tato třída je součástí jednoduché textové hry.
+ *  Příkaz pro rozebrání vybraného předmětu.
+ *
+ */
 
 public class PrikazRozeber implements IPrikaz{
 
@@ -22,10 +28,10 @@ public class PrikazRozeber implements IPrikaz{
             if (pozadovanaVec.jeRozebiratelna()){
                 switch (pozadovanaVec.getNazev()){
 
-                    case "Doutník_se_zapalovačem":
+                    case "set_doutníku_se_zapalovačem":
                         plan.getKosicek().vlozDoKosicku(new Vec("Doutník",true, false, false, false));
                         plan.getKosicek().vlozDoKosicku(new Vec("Zapalovač",true, true, false, false));
-                        System.out.printf(pozadovanaVec.getNazev() + "Jsi rozebral na samotný doutník a zapalovač a vložil jsi si je do batohu");
+                        System.out.printf(pozadovanaVec.getNazev() + " jsi rozebral na samotný doutník a zapalovač a vložil jsi si je do batohu");
                   break;
                 }
             }
@@ -34,8 +40,9 @@ public class PrikazRozeber implements IPrikaz{
                 return pozadovanaVec.getNazev() + " nejde rozebrat";
             }
         }
-        return "Abys mohl něco rozebrat tak si věc musíš nejdříve vložit do inventáře";
+        return "";
     }
+
 
     @Override
     public String getNazev() {

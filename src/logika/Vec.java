@@ -56,23 +56,49 @@ public class Vec {
     public boolean jePrenositelna() {
         return prenositelna;
     }
+    /**
+     * Vrací informaci o tom, zda  věc má speciální vlastnost.
+     *
+     * @return true, pokud je věc má speciální vlastnost, jinak false
+     */
     public boolean maSpecialniVlastnost() {
         return specialniVlastnost;
     }
+    /**
+     * Vrací informaci o tom, zda lze věc prohledat.
+     *
+     * @return true, pokud je věc jde prohledat, jinak false
+     */
     public boolean jeProhledatelna() {
         return prohledatelna;
     }
-
+    /**
+     * Vrací informaci o tom, zda je věc zamčená.
+     *
+     * @return true, pokud je věc zamčená, jinak false
+     */
     public boolean jeZamcena() { return zamcena; }
 
-
-
+    /**
+     * Vrací informaci o tom, zda je věc rozebíratelná.
+     *
+     * @return true, pokud je věc lze rozebrat, jinak false
+     */
     public boolean jeRozebiratelna(){return rozebiratelna;}
+    /**
+     * Nastaví vlastnost zamcena na zadanou hodnotu.
+     *
+     * @return true, pokud je zadáno true, jinak false
+     */
 
     public boolean Odemceni(boolean nepravda){
        return this.zamcena = nepravda;
     }
-
+    /**
+     * Nastaví vlastnost prohledatelna na zadanou hodnotu.
+     *
+     * @return true, pokud je zadáno true, jinak false
+     */
     public boolean setProhledatelna(boolean pravda){
        return this.prohledatelna = pravda;
     }

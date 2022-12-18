@@ -8,8 +8,6 @@ package logika;
  *  Vypisuje uvítací a ukončovací text hry.
  *  Také vyhodnocuje jednotlivé příkazy zadané uživatelem.
  *
- *@author     Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova
- *@version    pro školní rok 2016/2017
  */
 
 public class Hra implements IHra {
@@ -30,7 +28,7 @@ public class Hra implements IHra {
         platnePrikazy.vlozPrikaz(new PrikazKonec(this));
         platnePrikazy.vlozPrikaz(new PrikazSeber(herniPlan));
         platnePrikazy.vlozPrikaz(new PrikazPoloz(herniPlan));
-        platnePrikazy.vlozPrikaz(new PrikazPouzit(herniPlan));
+        platnePrikazy.vlozPrikaz(new PrikazPouzit(this));
         platnePrikazy.vlozPrikaz(new PrikazProhledat(herniPlan));
         platnePrikazy.vlozPrikaz(new PrikazOdemkni(herniPlan));
         platnePrikazy.vlozPrikaz(new PrikazRozeber(herniPlan));
@@ -43,10 +41,12 @@ public class Hra implements IHra {
     public String vratUvitani() {
         return "Vítejte!\n" +
                "V této hře jste se jako špion infiltrovali do nepřátelské vědecké laboratoře." + ".\n" +
-                "Vaším primárním úkolem je najít a ukrást dokumenty spojené s výzkumem nebezpečné bojové látky."+ ".\n" +
-                "A sekundární úkol je tuto látku najít a zničit ji."+ ".\n" +
+                "Vaším primárním úkolem je najít a zničit výzkum nebezpečné bojové látky."+ ".\n" +
+                "A sekundární úkol je najít dokumenty spojené s touto látkou."+ ".\n" +
                 "Vzhledem k tomu v jaké jste situaci, tak budete muste celou laboratoř důkladně prohledat aby jste našli to co hledáte. "+ ".\n" +
                "Napište 'nápověda', pokud si nevíte rady, jak hrát dál.\n" +
+                "FORMÁT - všechny mezery se zapisují jako podtržítko ->_<-.\n" +
+                "Například: Toto_je_příklad.\n" +
                "\n" +
                herniPlan.getAktualniProstor().dlouhyPopis();
     }

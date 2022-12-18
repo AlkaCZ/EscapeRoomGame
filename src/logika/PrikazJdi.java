@@ -3,9 +3,6 @@ package logika;
 /**
  *  Třída PrikazJdi implementuje pro hru příkaz jdi.
  *  Tato třída je součástí jednoduché textové hry.
- *  
- *@author     Jarmila Pavlickova, Luboš Pavlíček
- *@version    pro školní rok 2016/2017
  */
 public class PrikazJdi implements IPrikaz {
     private static final String NAZEV = "jdi";

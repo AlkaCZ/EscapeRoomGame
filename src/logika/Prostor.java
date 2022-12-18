@@ -96,7 +96,6 @@ public class Prostor {
         vysledek = 37 * vysledek + hashNazvu;
         return vysledek;
     }
-      
 
     /**
      * Vrací název prostoru (byl zadán při vytváření prostoru jako parametr
@@ -120,6 +119,12 @@ public class Prostor {
                 + "Veci: " + seznamVeci() + "\n"
                  + popisVychodu();
     }
+    /**
+     * Vrací seznam věcí, použitý jako informace pro hráče v příkazu prohledat
+     *
+     * @return seznam věcí v místnosti
+     */
+
 
     /**
      * Vrací textový řetězec, který popisuje sousední východy, například:
@@ -174,6 +179,10 @@ public class Prostor {
     public void vlozVec(Vec neco) {
         seznamVeci.add(neco);
     }
+    public void odeberVec(String nazev) {
+        seznamVeci.remove(vratVec(nazev));
+    }
+
     public Vec vratVec(String nazevVeci){
         Vec vybranaVec = null;
         for ( Vec neco : seznamVeci ) {

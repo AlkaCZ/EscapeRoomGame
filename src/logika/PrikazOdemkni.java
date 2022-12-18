@@ -1,4 +1,10 @@
 package logika;
+/**
+ *  Třída PrikazOdemkni implementuje pro hru příkaz odemkni.
+ *  Tato třída je součástí jednoduché textové hry.
+ *  Tento příkaz přidává možnost ve hře odemikat předměty
+ *
+ */
 
 public class PrikazOdemkni implements IPrikaz{
 
@@ -22,28 +28,26 @@ public class PrikazOdemkni implements IPrikaz{
             if (pozadovanaVec.jeZamcena()){
                 switch (pozadovanaVec.getNazev()){
                     case "Šatník":
-                        if (plan.getKosicek().obsahujeVec("Klíč_od_šatníku")) {
+                        if (plan.getKosicek().obsahujeVec("Klíče_od_šatníku")) {
                             pozadovanaVec.Odemceni(false);
                             pozadovanaVec.setProhledatelna(true);
                             plan.getAktualniProstor().vlozVec(new Vec("Kabat", true, false, true, false));
                             System.out.printf("Odemkl jsi " + nazevVeci + " ale musíš ho ještě prohledat");
                         }
                         break;
-                    case "Pracovní_stůl":
-                        if (plan.getKosicek().obsahujeVec("Klíč_od_pracovního_stolu"))
+                    case "Šuplík":
+                        if (plan.getKosicek().obsahujeVec("Klíček_od_šuplíku"))
                         {
                             plan.getAktualniProstor().vratVec(nazevVeci).Odemceni(false);
                             plan.getAktualniProstor().vratVec(nazevVeci).setProhledatelna(true);
-                            System.out.printf("Odemkl jsi" + nazevVeci + " ale musíš ho ještě prohledat");
+                            System.out.printf("Odemkl jsi " + nazevVeci + " ale musíš ho ještě prohledat");
                         }
                         break;
                     case "Zvláštní_dvířka":
-                        if (plan.getKosicek().obsahujeVec("Tajný_kód")) {
-                            plan.setAktualniProstor(new Prostor("Skrytá_místnost", "co se zde asi skrývá ?"));
-                            plan.getAktualniProstor().vlozVec(new Vec("Truhla",false,false,true,false));
-                            //Vypsat Itemy a podobné
-                            //aktualniMistnost.setVychod(plan.getVyherniProstor());// Až po použití doutníku
-                            System.out.printf("Odemkl jsi " + nazevVeci + " a našel jsi novou místnost, do které jsi ihned vešel");
+                        if (plan.getKosicek().obsahujeVec("Zvláštní_kód")) {
+                            plan.setTajnyVchod(plan.getAktualniProstor());
+                            System.out.println("Odemkl jsi " + nazevVeci + " a našel jsi novou místnost");
+                            System.out.println("Nová místnost: Skrytá_místnost" );
                         }
                         break;
 

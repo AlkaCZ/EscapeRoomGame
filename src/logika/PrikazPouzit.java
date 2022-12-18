@@ -1,16 +1,23 @@
 package logika;
+/**
+ *  Třída PrikazPouzit implementuje pro hru příkaz použít.
+ *  Tato třída je součástí jednoduché textové hry.
+ *  Příkaz pro použití vybrané věci z inventáře
+ *
+ */
 
-// Příkaz pro použití vybrané věci z inventáře
+
 public class PrikazPouzit implements IPrikaz{
 
     private static final String NAZEV = "použít";
 
+    private Hra hra;
     private HerniPlan plan;
-    private IHra hra;
 
 
-    public PrikazPouzit(HerniPlan plan){
-        this.plan = plan;
+    public PrikazPouzit (Hra hra) {
+        this.hra = hra;
+        plan = hra.getHerniPlan();
     }
     @Override
     public String provedPrikaz(String... parametry) {
@@ -26,7 +33,7 @@ public class PrikazPouzit implements IPrikaz{
                 case "Baterka":
                     //Přidat kontrolu pokud už je rozsvíceno, možná prostě odebrat baterku
                     System.out.printf("Rozsvítil jsi " + v.getNazev() + ".  ");
-                    if (plan.getAktualniProstor().obsahujeVec("Postel") && plan.getAktualniProstor().obsahujeVec("Noční stolek")){
+                    if (plan.getAktualniProstor().obsahujeVec("Postel") && plan.getAktualniProstor().obsahujeVec("Noční_stolek")){
                         return null;
                     }
 
@@ -34,17 +41,27 @@ public class PrikazPouzit implements IPrikaz{
                    else if (plan.getAktualniProstor().getNazev() == "Osobní_pokoj"){
                         plan.getAktualniProstor().vlozVec(new Vec("Postel", false, false, true, false));
                         plan.getAktualniProstor().vlozVec(new Vec("Noční_stolek", false, false, true, false));
-                        System.out.printf("Rozsvítil jsi v celém pokoji a díky tomu ho konečně můžeš pořádně prohledat");
+                        plan.getAktualniProstor().odeberVec("Tma");
+                        System.out.println("Rozsvítil jsi v celém pokoji a díky tomu ho konečně můžeš pořádně prohledat");
+                        System.out.println("Nová věc v místnosti : Postel Noční_stolek");
+
 
                     }
                    break;
                 case "Zapalovač":
                     System.out.printf("Rozsvítil jsi " + v.getNazev());
-                    //Nastavení konce hry pokud jsi v Tajné
-                    if (plan.getAktualniProstor().getNazev() == "Skrytá_místnost"){
+                    //Nastavení konce hry pokud jsi v Skryté
+                    if (plan.getKosicek().obsahujeVec("Nebezpečná_látka") && plan.getKosicek().obsahujeVec("Dokumenty_o_vývoji_látky")){
                         plan.setVyherniProstor(plan.getAktualniProstor());
-                        System.out.printf( " a zničil jsi nebezpečnou zkoumanou látku");
-                        System.out.printf( "  pro konec hry napiš  'Konec'");
+                        System.out.printf( " a zničil jsi nebezpečnou zkoumanou látku i s dokumenty");
+                        hra.setEpilog("Gratuluji, dokončnil jsi hru");
+                        hra.setKonecHry(true);
+                    }
+                    else if (plan.getKosicek().obsahujeVec("Nebezpečná_látka") && !plan.getKosicek().obsahujeVec("Dokumenty_o_vývoji_látky")){
+                        System.out.println("Nebezpečnou látku sice máš, ale pro splnění mise potřebuješ ješte dokumenty.");
+                    }
+                    else if (!plan.getKosicek().obsahujeVec("Nebezpečná_látka") && plan.getKosicek().obsahujeVec("Dokumenty_o_vývoji_látky")){
+                        System.out.println("Dokumenty sice máš, ale pro splnění mise potřebuješ ješte nebezpečnou látku.");
                     }
                     break;
 

@@ -1,4 +1,11 @@
 package logika;
+/**
+ *  Třída PrikazProhledat implementuje pro hru příkaz prohledat.
+ *  Tato třída je součástí jednoduché textové hry.
+ *  Příkaz pro prohledání vybrané věci v prostoru/místnosti.
+ *
+ */
+
 
 public class PrikazProhledat implements IPrikaz{
     private static final String NAZEV = "prohledat";
@@ -22,49 +29,70 @@ public class PrikazProhledat implements IPrikaz{
 
                 switch (pozadovanaVec.getNazev()){
                     case "Šatník":
-                        //otevření šatníku
-                        plan.getAktualniProstor().vlozVec(new Vec("Kabát", true,false,true,false));
+                        //prohledání šatníku
+                        plan.getAktualniProstor().vlozVec(new Vec("Kabát", false,false,true,false));
                         pozadovanaVec.setProhledatelna(false);
-                        System.out.printf("Prohledal jsi šatník a našel jsi v něm kabát");
+                        System.out.println("Prohledal jsi šatník a našel jsi v něm kabát");
+                        System.out.println("Nová věc v místnosti : Kabát");
                         break;
                     case "Stolek":
-                        plan.getAktualniProstor().vlozVec(new Vec("Doutník_se_zapalovačem", true,true,false,false, true));
+                        //prohledání stolku
+                        plan.getAktualniProstor().vlozVec(new Vec("set_doutníku_se_zapalovačem", true,true,false,false, true));
                         pozadovanaVec.setProhledatelna(false);
-                        System.out.printf("Prohledal jsi stolek a našel jsi v něm set doutníku se zapalovačem");
-                        //Podle potřeby přidat hint
+                        System.out.println("Prohledal jsi stolek a našel jsi v něm set doutníku se zapalovačem");
+                        System.out.println("Nová věc v místnosti : set_doutníku_se_zapalovačem");
                         break;
                     case "Kabát":
-                        plan.getAktualniProstor().vlozVec(new Vec("Tajný_kód", true,false,false,false));
+                        //prohledání kabátu
+                        plan.getAktualniProstor().vlozVec(new Vec("Zvláštní_kód", true,false,false,false));
                         pozadovanaVec.setProhledatelna(false);
-                        System.out.printf("Prohledal jsi kabát a našel jsi v něm nějaký kód.");
+                        System.out.println("Prohledal jsi kabát a našel jsi v něm nějaký kód.");
+                        System.out.println("Nová věc v místnosti : Zvláštní_kód");
                         break;
-                    case "Pracovní stůl":
-                        plan.getAktualniProstor().vlozVec(new Vec("Popis_tajné_látky", true,false,false,false));
+                    case "Pracovní_stůl":
+                        //prohledání pracovního stolu
+                        plan.getAktualniProstor().vlozVec(new Vec("Šuplík", false,false,false,true));
                         pozadovanaVec.setProhledatelna(false);
-                        System.out.printf("Prohledal jsi pracovní stůl a našel jsi v něm popis oné tajné látky.");
+                        System.out.println("Prohledal jsi pracovní stůl a našel jsi na první pohled skrytý a zamčený šuplík.");
+                        System.out.println("Nová věc v místnosti : Šuplík");
                         break;
+                    case "Šuplík":
+                        plan.getAktualniProstor().vlozVec(new Vec("Dokumenty_o_vývoji_látky", true,false,false,false));
+                        System.out.println("Prohledal jsi šuplík a našel jsi v něm dokumenty a popis tajné látky.");
+                        System.out.println("Nová věc v místnosti : Dokumenty_o_vývoji_látky");
+                        break;
+
                     case "Stojan":
-                        System.out.printf("Prohledal jsi stojan ale nic jsi tam nenašel.");
+                        //prohledání stojanu
+                        System.out.println("Prohledal jsi stojan ale nic jsi tam nenašel.");
                         break;
                     case "Skříň":
-                        System.out.printf("Prohledal jsi skříň ale nic jsi tam nenašel.");
+                        //prohledání skříně
+                        System.out.println("Prohledal jsi skříň ale nic jsi tam nenašel.");
                         break;
                     case "Řídící_deska":
-                        plan.getAktualniProstor().vlozVec(new Vec("Klíč_od_pracovního_stolu", true,false,false,false));
+                        //prohledání Řídící desky
+                        plan.getAktualniProstor().vlozVec(new Vec("Klíček_od_šuplíku", true,false,false,false));
                         pozadovanaVec.setProhledatelna(false);
-                        System.out.printf("Prohledal jsi řídící desku a našel jsi v ní klíč, nejspíše od pracovního stolu z laboratoře.");
+                        System.out.println("Prohledal jsi řídící desku a našel jsi v ní klíček od šuplíku, nejspíše od pracovního stolu z laboratoře.");
+                        System.out.println("Nová věc v místnosti : Klíček_od_šuplíku");
                         break;
 
                     case "Postel":
-                        System.out.printf("Prohledal jsi postel a zjistil jsi že to je opravdu velmi pohodlná postel.");
+                        //prohledání postele
+                        System.out.println("Prohledal jsi postel a zjistil jsi že to je opravdu velmi pohodlná postel.");
                         break;
                     case "Noční_stolek":
-                        plan.getAktualniProstor().vlozVec(new Vec("Klíč_od_šatníku", true,false,false,false));
+                        //prohledání nočního stolku
+                        plan.getAktualniProstor().vlozVec(new Vec("Klíče_od_šatníku", true,false,false,false));
                         pozadovanaVec.setProhledatelna(false);
-                        System.out.printf("Prohledal jsi noční stolek a našel jsi nějaké malé klíčky, nejspíše od šatníku.");
+                        System.out.println("Prohledal jsi noční stolek a našel jsi nějaké malé klíčky, nejspíše od šatníku.");
+                        System.out.println("Nová věc v místnosti : Klíče_od_šatníku");
                         break;
-
-
+                    case "Truhla":
+                        System.out.println("Prohledal jsi truhlu a našel jsi v ní hledanou nebezpečnou látku, kterou jsi ihned vzal do batohu.");
+                        plan.getKosicek().vlozDoKosicku(new Vec("Nebezpečná_látka", true,false,false,false));
+                     break;
                 }
 
             }
@@ -73,7 +101,7 @@ public class PrikazProhledat implements IPrikaz{
             }
 
             }
-     return "";
+        return "";
     }
 
     @Override
