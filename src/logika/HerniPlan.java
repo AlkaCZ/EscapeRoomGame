@@ -15,7 +15,7 @@ public class HerniPlan {
     private Prostor aktualniProstor;
     private Prostor vyherniProstor;
 
-    private Prostor skrytýProstor;
+    private Prostor skrytyProstor;
 
     private Kosicek kosicek;
     
@@ -36,7 +36,7 @@ public class HerniPlan {
         Prostor laborator = new Prostor("Laboratoř", "laboratoř, středně velká místnost, ve které se provádí pokusy a výzkum");
         Prostor ridiciMistnost = new Prostor("Řídící_místnost", "která je očividně hlavní místností v celém komplexu. Uprostřed stojí velkým pracovní stůl");
         Prostor osobniPokoj = new Prostor("Osobní_pokoj", "každý musí někde odpočívat, možná tady výzkumníci něco zapoměli");
-        Prostor skrytáMístnost = new Prostor("Skrytá_místnost", "co byl předtím skrytý, co zde asi je ?");
+        Prostor skrytaMistnost = new Prostor("Skrytá_místnost", "co byl předtím skrytý, co zde asi je ?");
 
 
         // přiřazují se průchody mezi prostory (sousedící prostory)
@@ -48,7 +48,7 @@ public class HerniPlan {
         ridiciMistnost.setVychod(chodba);
         ridiciMistnost.setVychod(osobniPokoj);
         osobniPokoj.setVychod(ridiciMistnost);
-        skrytáMístnost.setVychod(ridiciMistnost);
+        skrytaMistnost.setVychod(ridiciMistnost);
 
         //Vytvoření Předmětů
 
@@ -88,14 +88,14 @@ public class HerniPlan {
 
         //Skrytá místnost
         Vec truhla = new Vec("Truhla",false,false,true,false);
-        skrytáMístnost.vlozVec(truhla);
+        skrytaMistnost.vlozVec(truhla);
 
 
 
 
         aktualniProstor = predsin;  // hra začíná v peředsíňi
         vyherniProstor = null; // Výherní prostor se přiřadí po zničení látky
-        skrytýProstor = skrytáMístnost;
+        skrytyProstor = skrytaMistnost;
 
     }
     
@@ -123,7 +123,7 @@ public class HerniPlan {
     }
 
     public void setTajnyVchod(Prostor prostor){
-        prostor.setVychod(skrytýProstor);
+        prostor.setVychod(skrytyProstor);
     }
 
 
