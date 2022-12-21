@@ -26,7 +26,7 @@ Info autor:
 
 @autor - Jelínek Petr
 
-@verze - 1.5
+@verze - 1.6
 
 Problémy na konzultaci:
 
