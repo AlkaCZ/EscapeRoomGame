@@ -26,6 +26,10 @@ public class HerniPlan {
      */
     private Prostor skrytyProstor;
     /**
+     * Proměná  prostoru ve kterém se začíná,
+     */
+    private Prostor zacatecniProstor;
+    /**
      Proměná batohu/kosicku, do kterého se dávají vybrané předměty.
      */
     private Kosicek kosicek;
@@ -51,9 +55,13 @@ public class HerniPlan {
         Prostor osobniPokoj = new Prostor("Osobní_pokoj", "každý musí někde odpočívat, možná tady výzkumníci něco zapoměli");
         Prostor skrytaMistnost = new Prostor("Skrytá_místnost", "co byl předtím skrytý, co zde asi je ?");
 
+        Prostor mistnost1 = new Prostor("Místnost1","kde se nachází zadavatel questu");
+        Prostor mistnost2 = new Prostor("Místnost2", "kde se nachází hádankář");
+
 
         // přiřazují se průchody mezi prostory (sousedící prostory)
         predsin.setVychod(chodba);
+        predsin.setVychod(mistnost1);
         chodba.setVychod(ridiciMistnost);
         chodba.setVychod(laborator);
         chodba.setVychod(predsin);
@@ -62,6 +70,12 @@ public class HerniPlan {
         ridiciMistnost.setVychod(osobniPokoj);
         osobniPokoj.setVychod(ridiciMistnost);
         skrytaMistnost.setVychod(ridiciMistnost);
+
+        /**
+         * Místnosti 1 a 2
+         */
+        mistnost1.setVychod(mistnost2);
+        mistnost2.setVychod(mistnost1);
 
         //Vytvoření Předmětů
 
@@ -103,12 +117,24 @@ public class HerniPlan {
         Vec truhla = new Vec("Truhla",false,false,true,false);
         skrytaMistnost.vlozVec(truhla);
 
+        /**
+         *  Místnost1
+         */
+        Postava zadavatel = new Postava("Zadavatel", ", donesl by jsi mi prosím knihu ?");
+        mistnost1.vlozPostavu(zadavatel);
+
+        /**
+         *  Místnost2
+         */
+        Postava hadankar = new Postava("Hádankář", "a zadám ti hádánku : Kdo mne má v kapse, nemá v ní nic. Co jsem ?");
+        mistnost2.vlozPostavu(hadankar);
 
 
 
         aktualniProstor = predsin;  // hra začíná v peředsíňi
         vyherniProstor = null; // Výherní prostor se přiřadí po zničení látky
         skrytyProstor = skrytaMistnost;
+        zacatecniProstor = predsin;
 
     }
     
@@ -121,12 +147,21 @@ public class HerniPlan {
     public Prostor getAktualniProstor() {
         return aktualniProstor;
     }
-    
+
+    /**
+     *  Metoda vrací odkaz na začáteční prostor, ve ktetém se hráč nacházel.
+     *
+     *@return     začáteční prostor
+     */
+
+    public Prostor getZacatecniProstor(){return zacatecniProstor;}
+
     /**
      *  Metoda nastaví aktuální prostor, používá se nejčastěji při přechodu mezi prostory
      *
      *@param  prostor nový aktuální prostor
      */
+
     public void setAktualniProstor(Prostor prostor) {
        aktualniProstor = prostor;
     }
@@ -141,9 +176,6 @@ public class HerniPlan {
     public void setTajnyVchod(Prostor prostor){
         prostor.setVychod(skrytyProstor);
     }
-
-
-
 
     public Prostor getVyherniProstor() {
         return vyherniProstor;

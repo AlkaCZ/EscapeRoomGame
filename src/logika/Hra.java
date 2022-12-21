@@ -24,6 +24,12 @@ public class Hra implements IHra {
      Nastavení konce HRY
      */
     private boolean konecHry = false;
+    /**
+     Nastavení pokud je zadaná hádanka
+     */
+
+
+    private boolean hadankaInProgress = false;
 
     /**
      Nastavení základního epilogu
@@ -47,6 +53,10 @@ public class Hra implements IHra {
         platnePrikazy.vlozPrikaz(new PrikazOdemkni(herniPlan));
         platnePrikazy.vlozPrikaz(new PrikazRozeber(herniPlan));
         platnePrikazy.vlozPrikaz(new PrikazBatoh(herniPlan));
+        platnePrikazy.vlozPrikaz(new PrikazAbrakadabra(herniPlan));
+        platnePrikazy.vlozPrikaz(new PrikazCarymaryfuk(herniPlan, this));
+        platnePrikazy.vlozPrikaz(new PrikazHadanka(herniPlan,this));
+        platnePrikazy.vlozPrikaz(new PrikazPredat(herniPlan,this));
     }
 
     /**
@@ -129,6 +139,15 @@ public class Hra implements IHra {
     public void setEpilog(String epilog) {
         this.epilog = epilog;
     }
+
+    /**
+     * Vrací zadaný stav hádanky.
+     */
+    public boolean setHadanka(boolean stav){ return this.hadankaInProgress = stav;}
+    /**
+     * Vrací true, pro to pokud je zadána hádanka.
+     */
+    public boolean getHadankaInProgress(){return hadankaInProgress;}
 
 }
 

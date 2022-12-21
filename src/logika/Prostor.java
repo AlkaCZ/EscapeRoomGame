@@ -43,11 +43,20 @@ public class Prostor {
      * víceslovný název bez mezer.
      * @param popis Popis prostoru.
      */
+
+    /**
+     * Seznam postav v místnosti
+     */
+    private List<Postava> seznamPostav;
+    /**
+     * Vytvoření konstruktoru prostoru
+     */
     public Prostor(String nazev, String popis) {
         this.nazev = nazev;
         this.popis = popis;
         vychody = new HashSet<>();
         seznamVeci = new ArrayList<Vec>();
+        seznamPostav = new ArrayList<Postava>();
     }
 
     /**
@@ -199,6 +208,18 @@ public class Prostor {
     public void odeberVec(String nazev) {
         seznamVeci.remove(vratVec(nazev));
     }
+    /**
+     Metoda pro vlkádání Postav z prostoru.
+     */
+    public void vlozPostavu(Postava neco) {
+        seznamPostav.add(neco);
+    }
+    /**
+     Metoda pro odebrání Postav z prostoru.
+     */
+    public void odeberPostavu(String nazev) {
+        seznamPostav.remove(vratVec(nazev));
+    }
 
     /**
      Metoda pro vrácení věci podle názvu věci
@@ -211,6 +232,31 @@ public class Prostor {
             }
         }
         return vybranaVec;
+    }
+    /**
+     Metoda pro vrácení postavy podle názvu věci
+     */
+    public Postava vratPostavu(String nazevPostavy){
+        Postava vybranaPostava = null;
+        for ( Postava neco : seznamPostav ) {
+            if (neco.getNazev().equals(nazevPostavy)) {
+                vybranaPostava = neco;
+            }
+        }
+        return vybranaPostava;
+    }
+    /**
+     *      Metoda která vrací true, pokud jsou v místnosti nějaké postavy.
+     *      False pokud ne.
+     */
+    public boolean existencePostav(){
+  if (seznamPostav.isEmpty()){
+      return false;
+
+  }
+  else {
+      return true;
+  }
     }
     /**
      Metoda pro rozhodnutí pokud je v prostoru/místnosti hledaná věc
